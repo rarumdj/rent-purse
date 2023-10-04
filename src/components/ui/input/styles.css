@@ -1,0 +1,53 @@
+[type='checkbox']:checked {
+  background-image: url('data:image/svg+xml,<svg viewBox="0 0 16 16" fill="rgba(0, 0, 0, 1)" xmlns="http://www.w3.org/2000/svg"><path d="M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z"/></svg>');
+}
+
+.not-select {
+  cursor: not-allowed;
+}
+
+.selector {
+  outline: none !important;
+  border-width: 0;
+}
+
+.selector:focus-visible {
+  outline: none !important;
+  border: none;
+  box-shadow: none;
+}
+
+.PhoneInputInput {
+  border-top: none;
+  border-bottom: none;
+  border-right: none;
+  border-left: 1px solid #e5e5e5;
+  padding-left: 20px;
+}
+
+.PhoneInputInput:focus {
+  outline: none !important;
+}
+
+.phone input::placeholder {
+  font-size: 14px;
+}
+
+.phone input:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border-left: 1px solid #e5e5e5;
+}
+
+/* Custom style for the checked radio button */
+input[type='radio'].custom-radio:checked::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #000; /* Black color for the inner circle */
+}
