@@ -3,9 +3,11 @@ import AuthNavbar from 'components/navbar/auth-navbar';
 
 const AuthLayout = ({ children }: any) => {
   return (
-    <main className="min-h-screen bg-auth_bg bg-cover">
-      <section className="container mx-auto flex px-5 py-16 md:py-24">
-        <div className="mx-auto w-full max-w-lg pb-16 pt-20">{children}</div>
+    <main className="min-h-screen bg-primary bg-cover">
+      <section className="container mx-auto flex md:px-5 md:py-8 min-h-full bg-primary">
+        <div className="mx-auto flex flex-col  w-full max-w-6xl pb-6 md:pt-10 bg-primary">
+          {children}
+        </div>
       </section>
     </main>
   );
