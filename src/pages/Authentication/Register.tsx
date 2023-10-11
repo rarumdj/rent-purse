@@ -11,16 +11,19 @@ import { loginFormScheme, signUpScheme } from './authSchema';
 import { FormInput } from 'components/ui/input/FormInput';
 import { FormCheckbox } from 'components/ui/input/FormCheckbox';
 import Button from 'components/button/button';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import CheckPasswordStrength from 'components/ui/password-strength';
 import PhoneInputs from 'components/ui/input/PhoneInputs';
 import usePhoneNumber from 'hooks/usePhoneNumber';
 import AuthCard from 'components/cards/AuthCard';
+import Modal from 'components/ui/modal';
+import VerifyEmail from './Verify-email';
 
 const Register = () => {
   const { push } = useHistory();
   const [validatePassword, setValidatePassword] = useState(false);
   const { handlePhoneNumberChange, internationalFormat } = usePhoneNumber();
+  const { pathname } = useLocation();
   const {
     register,
     handleSubmit,
@@ -42,15 +45,17 @@ const Register = () => {
     console.log(data);
   });
 
+  const isVerify = pathname === '/verify-email';
+
   return (
     <AuthCard>
-      <div className="md:flex hidden items-center gap-2">
+      <div className="hidden items-center gap-2 md:flex">
         <ArrowLeft2 className="h-5 w-5" /> Go back
       </div>
       <div className="mt-5">
         <h1 className="text-xl font-bold md:text-3xl">Sign up</h1>
       </div>
-      <p className="mb-8 mt-5 md:text-base text-sm">
+      <p className="mb-8 mt-5 text-sm md:text-base">
         Welcome to the future of Savings & Investments
       </p>
 
@@ -204,6 +209,9 @@ const Register = () => {
           <span className="cursor-pointer text-primary-700">Sign in</span>
         </div>
       </form>
+      <Modal active={isVerify} onClick={() => null}>
+        <VerifyEmail />
+      </Modal>
     </AuthCard>
   );
 };

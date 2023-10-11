@@ -41,7 +41,7 @@ const Modal = ({
         <div
           ref={ref}
           className={classNames(
-            'mx-auto w-11/12 origin-bottom transform rounded-[10px] transition-all delay-200 duration-500 ',
+            'mx-auto xl:pt-10 pt-6 w-11/12 origin-bottom transform rounded-[10px] transition-all delay-200 duration-500 ',
             active
               ? 'translate-y-0 scale-100 opacity-100'
               : 'translate-y-10 scale-90 opacity-0',
@@ -52,7 +52,7 @@ const Modal = ({
           {close && (
             <button
               onClick={() => onClick(!active)}
-              className="absolute right-0 flex h-6 w-6 -translate-y-[1.5rem] translate-x-4 rounded-full border-none bg-gray-300  outline-none transition-all duration-500 ease-in-out hover:bg-red-500 hover:text-white xl:h-7 xl:w-7 xl:-translate-y-[1.8rem] xl:translate-x-7"
+              className="absolute right-0 flex h-6 w-6 -translate-y-[0.4rem] -translate-x-5 rounded-full border  outline-none transition-all duration-500 ease-in-out hover:bg-red-500 hover:text-white xl:h-7 xl:w-7 xl:-translate-y-[0.7rem] xl:-translate-x-8"
             >
               <XMarkIcon className="m-auto h-4 w-4" />
             </button>

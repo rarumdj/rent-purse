@@ -21,7 +21,7 @@ const AuthCard: FC<IAuthCard> = ({ children }) => {
           <div className="md:hidden items-center gap-2 p-6 text-white flex">
             <ArrowLeft2 className="h-5 w-5 text-white" /> <AppLogoWhite />
           </div>
-          <div className="hide-scrollbar min-h-[calc(100vh-72px)] overflow-y-scroll rounded-t-lg bg-white px-6 py-2  md:min-h-0 md:rounded-t-none md:px-10">
+          <div className="hide-scrollbar min-h-[calc(100vh-72px)] overflow-y-scroll rounded-t-lg bg-white px-6 py-2  md:min-h-[530px] md:rounded-t-none md:px-10">
             {children}
           </div>
         </div>
