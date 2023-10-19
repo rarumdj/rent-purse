@@ -39,7 +39,7 @@ export const NavLinks = [
     navs: [
       {
         name: 'My plan',
-        link: '/plan',
+        link: '/',
         icon: UserSquare,
         iconColor: {
           hover: 'group-hover:text-blue-gray-600',
