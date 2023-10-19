@@ -22,7 +22,7 @@ export type FormInputProps<TFormValues extends FieldValues = FieldValues> = {
   errors?: Partial<DeepMap<TFormValues, FieldError>> | FieldErrors<TFormValues>;
 } & Omit<InputProps, 'name'>;
 
-export const FormInput = <TFormValues extends Record<string, unknown>>({
+export const FormInput = <TFormValues extends Record<string, any>>({
   name,
   register,
   rules,

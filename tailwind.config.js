@@ -30,6 +30,7 @@ module.exports = {
         'gray-25': '#FCFCFD',
         'gray-30': '#667085',
         'main-surface': '#F8F8F8',
+        'main-header':'#0A024E',
 
         // success
         'success-25': '#d1fadf',

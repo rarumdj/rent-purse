@@ -89,7 +89,7 @@ const DashboardLayout = ({ children }: any) => {
           </div>
         </div>
         {/* <DashboardNavbar links={DriverLink} /> */}
-        <section className="relative mx-auto min-h-screen max-w-[110rem] pb-8 pl-2 pr-2 pt-8 sm:pl-4 sm:pr-4 md:pl-0 md:pr-10 md:pt-24 lg:pl-8 lg:pr-8">
+        <section className="relative mx-auto min-h-screen max-w-[110rem] pb-8 pl-2 pr-2 pt-4 sm:pl-4 sm:pr-4 md:pl-0 md:pr-10 md:pt-24 lg:pl-8 lg:pr-8">
           {children}
         </section>
       </main>

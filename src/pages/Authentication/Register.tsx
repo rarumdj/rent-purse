@@ -209,7 +209,7 @@ const Register = () => {
           <span className="cursor-pointer text-primary-700">Sign in</span>
         </div>
       </form>
-      <Modal active={isVerify} onClick={() => null}>
+      <Modal position="center" active={isVerify} onClick={() => null}>
         <VerifyEmail />
       </Modal>
     </AuthCard>

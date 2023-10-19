@@ -7,7 +7,6 @@ import { useHistory } from 'react-router-dom';
 import { ReactComponent as LampCharge } from '../../assets/icons/lamp-charge.svg';
 
 interface IpageLayout {
-  title: string;
   count?: number;
   showCount?: boolean;
   children: React.ReactNode;
@@ -20,7 +19,6 @@ interface IpageLayout {
   hideTitle?: boolean;
 }
 const PageLayout: FC<IpageLayout> = ({
-  title,
   children,
   count,
   showCount,

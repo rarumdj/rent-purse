@@ -11,7 +11,7 @@ import classNames from 'classnames';
 import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
 
 export type InputSize = 'medium' | 'large';
-export type InputType = 'text' | 'email' | 'tel' | 'password';
+export type InputType = 'text' | 'email' | 'tel' | 'password' | 'date';
 
 export type InputProps = {
   id: string;
@@ -87,7 +87,7 @@ export const Input: FC<InputProps> = forwardRef<HTMLInputElement, InputProps>(
             aria-label={label}
             placeholder={placeholder}
             className={classNames([
-              'relative inline-flex w-full border border-gray-300 bg-transparent leading-none text-gray-700 placeholder-gray-500 transition-colors ease-in-out placeholder:text-sm hover:border-gray-900 focus:border-gray-900 focus:outline-none focus:ring-gray-400 focus:ring-opacity-30 focus:ring-4',
+              'relative inline-flex w-full border border-gray-300 bg-transparent leading-none text-gray-700 placeholder-gray-500 transition-colors ease-in-out placeholder:text-sm hover:border-gray-900 focus:border-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-400 focus:ring-opacity-30',
               sizeMap[size],
               className,
               { ['rounded-r-lg']: group, ['rounded-lg']: !group },
@@ -107,7 +107,7 @@ export const Input: FC<InputProps> = forwardRef<HTMLInputElement, InputProps>(
         </div>
 
         {type === 'password' ? (
-          <div className="absolute inset-y-0 right-0 top-1/2 bottom-1/2 m-auto mr-3 translate-y-1 cursor-pointer">
+          <div className="absolute inset-y-0 bottom-1/2 right-0 top-1/2 m-auto mr-3 translate-y-1 cursor-pointer">
             {!showPassord ? (
               <EyeIcon
                 className={classNames('h-5 w-5', { ['text-red-600']: isError })}

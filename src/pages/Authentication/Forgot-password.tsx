@@ -77,7 +77,7 @@ const ForgotPassword = () => {
           <span className="cursor-pointer text-primary-700">Sign up</span>
         </div>
       </form>
-      <Modal active={isVerify} onClick={() => null}>
+      <Modal active={isVerify} onClick={() => null} position='center'>
         <VerifyPasswordReset />
       </Modal>
     </AuthCard>

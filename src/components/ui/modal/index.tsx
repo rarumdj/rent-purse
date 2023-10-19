@@ -1,6 +1,7 @@
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import classNames from 'classnames';
 import useOutsideClick from 'components/clickoutside';
+import { ArrowLeft } from 'iconsax-react';
 import React, { useEffect, useRef } from 'react';
 
 type modalType = {
@@ -10,6 +11,7 @@ type modalType = {
   close?: boolean;
   bg?: boolean;
   size?: string;
+  position?: 'side' | 'center';
 };
 
 const Modal = ({
@@ -19,6 +21,7 @@ const Modal = ({
   close,
   bg = true,
   size,
+  position = 'side',
 }: modalType) => {
   const ref = useRef(null);
   const buttonClickedOutside = useOutsideClick(ref);
@@ -29,7 +32,51 @@ const Modal = ({
     }
   }, [buttonClickedOutside, onClick, active]);
 
-  return (
+  const SideModal = (
+    <>
+      <div
+        className={classNames(
+          active ? 'opacity-100' : 'pointer-events-none opacity-0',
+          'fixed inset-0 z-50 transform bg-black/60 backdrop-blur-[0.7px] transition-all duration-500 ease-in-out'
+        )}
+      ></div>
+      <div
+        // tabindex="-1"
+        className={classNames(
+          'hide-scrollbar fixed bottom-0 right-0 top-0 z-[9999] flex w-full transform flex-col items-center overflow-x-scroll  overflow-y-scroll bg-white bg-opacity-50 transition-all duration-300 md:w-fit',
+          active
+            ? 'translate-y-0 md:translate-x-0'
+            : 'pointer-events-none translate-y-[100%] md:translate-x-[100%]'
+        )}
+      >
+        <div
+          ref={ref}
+          className={classNames(
+            'hide-scrollbar relative mx-auto h-full w-full max-w-full origin-bottom overflow-scroll px-4 py-4 pt-20 md:max-w-lg md:px-8',
+            { ['bg-white']: bg }
+          )}
+        >
+          <div className="fixed left-0 right-0 top-0 block w-full border-b bg-white py-6 md:hidden">
+            <ArrowLeft
+              onClick={() => onClick(!active)}
+              className="ml-4 cursor-pointer"
+            />
+          </div>
+
+          <button
+            onClick={() => onClick(!active)}
+            className="absolute  right-0 hidden h-6 w-6 -translate-x-5 -translate-y-[2.2rem] rounded-full border outline-none  transition-all duration-500 ease-in-out hover:bg-red-500 hover:text-white md:flex xl:h-7 xl:w-7 xl:-translate-x-8 xl:-translate-y-[2.8rem]"
+          >
+            <XMarkIcon className="m-auto h-4 w-4" />
+          </button>
+
+          <div className="py-4">{children}</div>
+        </div>
+      </div>
+    </>
+  );
+
+  const CenteredModal = (
     <>
       <div
         // tabindex="-1"
@@ -41,7 +88,7 @@ const Modal = ({
         <div
           ref={ref}
           className={classNames(
-            'mx-auto xl:pt-10 pt-6 w-11/12 origin-bottom transform rounded-[10px] transition-all delay-200 duration-500 ',
+            'mx-auto w-11/12 origin-bottom transform rounded-[10px] pt-6 transition-all delay-200 duration-500 xl:pt-10 ',
             active
               ? 'translate-y-0 scale-100 opacity-100'
               : 'translate-y-10 scale-90 opacity-0',
@@ -52,7 +99,7 @@ const Modal = ({
           {close && (
             <button
               onClick={() => onClick(!active)}
-              className="absolute right-0 flex h-6 w-6 -translate-y-[0.4rem] -translate-x-5 rounded-full border  outline-none transition-all duration-500 ease-in-out hover:bg-red-500 hover:text-white xl:h-7 xl:w-7 xl:-translate-y-[0.7rem] xl:-translate-x-8"
+              className="absolute right-0 flex h-6 w-6 -translate-x-5 -translate-y-[0.4rem] rounded-full border  outline-none transition-all duration-500 ease-in-out hover:bg-red-500 hover:text-white xl:h-7 xl:w-7 xl:-translate-x-8 xl:-translate-y-[0.7rem]"
             >
               <XMarkIcon className="m-auto h-4 w-4" />
             </button>
@@ -63,6 +110,7 @@ const Modal = ({
       </div>
     </>
   );
+  return <>{position === 'center' ? CenteredModal : SideModal}</>;
 };
 
 export default Modal;

@@ -19,7 +19,7 @@ const ConfirmDeleteModal = ({
   isLoading,
 }: Props) => {
   return (
-    <Modal active={isOpen} onClick={onClose}>
+    <Modal position="center" active={isOpen} onClick={onClose}>
       <div className="rounded-xl bg-white p-6">
         <div className="flex gap-6">
           <div className="flex h-12 w-12 items-center justify-center rounded-full bg-error-50">
