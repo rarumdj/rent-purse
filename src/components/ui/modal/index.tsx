@@ -45,8 +45,8 @@ const Modal = ({
         className={classNames(
           'hide-scrollbar fixed bottom-0 right-0 top-0 z-[9999] flex w-full transform flex-col items-center overflow-x-scroll  overflow-y-scroll bg-white bg-opacity-50 transition-all duration-300 md:w-fit',
           active
-            ? 'translate-y-0 md:translate-x-0'
-            : 'pointer-events-none translate-y-[100%] md:translate-x-[100%]'
+            ? 'transform md:translate-x-0'
+            : 'pointer-events-none translate-x-0 translate-y-[100%] md:translate-x-[100%] md:translate-y-0'
         )}
       >
         <div
