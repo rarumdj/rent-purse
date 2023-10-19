@@ -26,9 +26,10 @@ module.exports = {
       },
       colors: {
         // gray
-        'primary': '#554BDB',
+        primary: '#554BDB',
         'gray-25': '#FCFCFD',
         'gray-30': '#667085',
+        'main-surface': '#F8F8F8',
 
         // success
         'success-25': '#d1fadf',

@@ -28,9 +28,16 @@ const textMap: { [key in badgeTypes]: string } = {
 interface IEmptyData {
   status?: badgeTypes;
   title?: string;
+  bgColor?: string;
+  textColor?: string;
+  icon?: React.FunctionComponent<
+    React.SVGProps<SVGSVGElement> & {
+      title?: string | undefined;
+    }
+  >;
 }
 
-const Badge = ({ title, status: Status }: IEmptyData) => {
+const Badge = ({ title, status: Status, icon: Icon }: IEmptyData) => {
   const status = Status?.toLowerCase() as badgeTypes;
 
   return (
@@ -41,7 +48,7 @@ const Badge = ({ title, status: Status }: IEmptyData) => {
         bgMap[status]
       )}
     >
-      {/* <Icon className={classNames('mr-1 h-3.5 w-3.5', iconMap[status])} /> */}
+      {Icon && <Icon className={classNames('mr-1 h-3.5 w-3.5')} />}
       {capitalizeString(title as string)}
     </span>
   );

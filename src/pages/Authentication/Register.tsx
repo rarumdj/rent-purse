@@ -89,7 +89,7 @@ const Register = () => {
           id="email"
           type="email"
           name="email"
-          label="School email"
+          label="Email"
           placeholder="Enter your email here"
           className="mb-2"
           register={register}

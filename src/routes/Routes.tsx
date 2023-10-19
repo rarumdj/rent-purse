@@ -2,6 +2,7 @@ import ForgotPassword from 'pages/Authentication/Forgot-password';
 import Login from 'pages/Authentication/Login';
 import Register from 'pages/Authentication/Register';
 import ResetPassword from 'pages/Authentication/Reset-password';
+import GetStarted from 'pages/Get-started';
 import PageNotFound from 'pages/PageNotFound';
 
 // const Dashboard = lazy(() => import('pages/dashboard'));
@@ -54,6 +55,14 @@ export const dashboardRoutes = [
     component: ResetPassword,
     exact: true,
     type: 'auth',
+  },
+  {
+    name: 'get-started',
+    isPrivate: true,
+    path: '/get-started',
+    component: GetStarted,
+    exact: true,
+    type: 'dashboard',
   },
   {
     path: '*',
