@@ -19,7 +19,7 @@ const PageNotFound = () => {
                     Sorry, but the page you were looking for could not be found.
                     You can return to our home page, or drop us an email on
                     <span className="px-1 font-medium">
-                      support@joinsteward.com{' '}
+                      support@rentpurse.com{' '}
                     </span>{' '}
                     if you can&apos;t find what you&apos;re looking for.
                   </p>
