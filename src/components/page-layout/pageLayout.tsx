@@ -33,7 +33,7 @@ const PageLayout: FC<IpageLayout> = ({
   const { goBack } = useHistory();
 
   return (
-    <section className="flex h-full px-4">
+    <section className="flex h-full">
       <div
         className={classNames(
           'relative mx-auto mb-6 flex h-full w-full flex-wrap bg-white',
