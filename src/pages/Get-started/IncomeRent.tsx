@@ -56,7 +56,7 @@ const IncomeRent = () => {
           errors={errors}
           rules={{ required: 'Enter an amount' }}
           id="annual_rent"
-          className="mb-2"
+          className="mb-3"
           placeholder="0.00"
         />
 

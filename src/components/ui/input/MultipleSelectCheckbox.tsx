@@ -131,6 +131,7 @@ export const theStyle = (error: any, { minWidth, maxWidth }: styleWidth) => {
       return {
         ...defaultStyles,
         textAlign: 'start',
+        fontSize: 14,
       };
     },
   };

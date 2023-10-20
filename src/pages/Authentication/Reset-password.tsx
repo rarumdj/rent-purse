@@ -56,7 +56,7 @@ const ResetPassword = () => {
           name="password"
           label="Password"
           placeholder="••••••••"
-          className="mb-2"
+          className="mb-3"
           register={register}
           rules={{
             required: true,
@@ -76,7 +76,7 @@ const ResetPassword = () => {
           name="confirmPassword"
           label="Confirm password"
           placeholder="••••••••"
-          className="mb-2"
+          className="mb-3"
           register={register}
           rules={{
             required: true,

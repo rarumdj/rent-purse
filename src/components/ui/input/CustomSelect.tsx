@@ -28,7 +28,7 @@ const CustomSelect: FC<SelectProps> = props => {
   const hasError = !!(errors && errorMessages);
   return (
     <div className="w-full">
-      <label htmlFor={idx} className="text-sm leading-7 text-gray-600">
+      <label htmlFor={idx} className="text-sm text-gray-600">
         {label}
       </label>
 
@@ -38,7 +38,7 @@ const CustomSelect: FC<SelectProps> = props => {
         rules={rules}
         render={({ field: { onChange, value } }) => {
           return (
-            <>
+            <div className='mt-1'>
               {createable ? (
                 <CreatableSelect
                   isClearable
@@ -65,7 +65,7 @@ const CustomSelect: FC<SelectProps> = props => {
                   {...res}
                 />
               )}
-            </>
+            </div>
           );
         }}
       />

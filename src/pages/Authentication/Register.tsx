@@ -67,7 +67,7 @@ const Register = () => {
             name="first_name"
             label="First Name"
             placeholder="First Name"
-            className="col-span-12 mb-2 w-full md:col-span-6"
+            className="col-span-12 mb-3 w-full md:col-span-6"
             register={register}
             rules={{ required: true }}
             errors={errors}
@@ -78,7 +78,7 @@ const Register = () => {
             name="last_name"
             label="Last Name"
             placeholder="Last Name"
-            className="col-span-12 mb-2 w-full md:col-span-6"
+            className="col-span-12 mb-3 w-full md:col-span-6"
             register={register}
             rules={{ required: true }}
             errors={errors}
@@ -91,7 +91,7 @@ const Register = () => {
           name="email"
           label="Email"
           placeholder="Enter your email here"
-          className="mb-2"
+          className="mb-3"
           register={register}
           rules={{
             required: true,
@@ -103,9 +103,9 @@ const Register = () => {
           name="phone_number"
           errors={errors}
           control={control}
-          placeholder="(555) 000-0000"
+          placeholder="(234) 000-0000"
           label="Phone number"
-          classNames="my-2"
+          classNames="my-3"
           setValue={(localFormat: any, international: any, countryCode: any) =>
             handlePhoneNumberChange(localFormat, international, countryCode)
           }
@@ -118,7 +118,7 @@ const Register = () => {
           name="password"
           label="Password"
           placeholder="••••••••"
-          className="mb-2"
+          className="mb-3"
           register={register}
           rules={{
             required: true,
@@ -137,7 +137,7 @@ const Register = () => {
           name="confirmPassword"
           label="Confirm password"
           placeholder="••••••••"
-          className="mb-2"
+          className="mb-3"
           register={register}
           rules={{
             required: true,
@@ -151,7 +151,7 @@ const Register = () => {
           name="referral"
           label="Referrer Phone or Promo code (Optional)"
           placeholder="Referrer Phone or Code"
-          className="mb-2"
+          className="mb-3"
           register={register}
           rules={{
             required: true,

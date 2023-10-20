@@ -24,14 +24,14 @@ export const CustomUploadLabel = ({
       id="label-file-upload"
       htmlFor="input-file-upload"
       className={classNames(
-        'flex h-full w-full cursor-pointer items-center rounded-lg border border-dashed border-gray-200 bg-white px-4 py-4 text-gray-500 transition-colors ease-in-out hover:border-gray-900 active:border-gray-900 active:outline-none active:ring-gray-400 active:ring-opacity-30 active:ring-4',
+        'flex h-full w-full cursor-pointer items-center rounded-lg border border-dashed border-gray-200 bg-white px-4 py-4 text-gray-500 transition-colors ease-in-out hover:border-gray-900 active:border-gray-900 active:outline-none active:ring-4 active:ring-gray-400 active:ring-opacity-30',
         dragActive ? 'bg-white' : ''
       )}
     >
       <div
         className={classNames(
           column ? 'flex-col' : 'flex-row',
-          'flex h-full w-full items-center gap-2 text-sm'
+          'flex h-full w-full items-center justify-center gap-2 text-sm'
         )}
       >
         {column ? (
@@ -40,7 +40,7 @@ export const CustomUploadLabel = ({
           <DocumentUpload className="mr-2 h-6 w-6 text-primary-700" />
         )}
 
-        <div>
+        <div className="">
           <div
             className={classNames(
               'flex  text-center text-base font-medium',

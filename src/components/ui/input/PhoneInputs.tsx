@@ -60,7 +60,7 @@ const PhoneInputs = ({
   return (
     <div className={cs({ [classNames]: classNames })}>
       <div className={cs('phone')}>
-        <label htmlFor={name} className="text-sm leading-7 text-gray-600">
+        <label htmlFor={name} className="text-sm text-gray-600">
           {label}
         </label>
         <Controller
@@ -101,7 +101,7 @@ const PhoneInputs = ({
                 }}
                 id={name}
                 className={cs(
-                  'relative inline-flex w-full rounded-lg border border-gray-300 bg-transparent px-4 py-0.5 leading-none text-gray-700 placeholder-gray-500 transition-colors ease-in-out placeholder:text-sm hover:border-gray-900 focus:border-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-400 focus:ring-opacity-30',
+                  'relative inline-flex w-full mt-1 rounded-lg border border-gray-300 bg-transparent px-4 py-0.5 leading-none text-gray-700 placeholder-gray-500 transition-colors ease-in-out placeholder:text-sm hover:border-gray-900 focus:border-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-400 focus:ring-opacity-30',
                   {
                     'border-red-600 transition-colors hover:border-red-600 focus:border-red-600 focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-opacity-50':
                       hasError,

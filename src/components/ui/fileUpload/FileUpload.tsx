@@ -3,26 +3,35 @@ import classNames from 'classnames';
 import { CloseCircle, Status } from 'iconsax-react';
 import React, { FC, useEffect, useState } from 'react';
 // import { uploadNewFile } from 'redux/api/fileUpload';
+import { ReactComponent as DeleteIcon } from 'assets/icons/delete-icon.svg';
 
 interface IFileUpload {
   type: 'text' | 'number' | 'file';
   group?: string;
+  label?: string;
   customLabel?: React.FunctionComponent<any>;
   setFile?: any;
+  file?: any;
   setUploadingFile?: React.Dispatch<React.SetStateAction<boolean>>;
   disabled?: boolean;
   success?: boolean;
   name?: string;
+  fullHeight?: boolean;
+  preview?: boolean;
 }
 const FileUpload: FC<IFileUpload> = ({
   type,
   group,
+  label,
   customLabel: CustomLabel,
   setFile,
+  file,
   setUploadingFile,
   disabled,
   success,
   name = 'file',
+  fullHeight = false,
+  preview = false,
 }) => {
   // drag state
   const [dragActive, setDragActive] = React.useState(false);
@@ -112,10 +121,10 @@ const FileUpload: FC<IFileUpload> = ({
 
   const UploadComponent = () => {
     return (
-      <div className="relative">
+      <div className="relative h-full">
         <div
           id="form-file-upload"
-          className="relative w-full max-w-full"
+          className="relative h-full w-full max-w-full"
           onDragEnter={handleDrag}
           onSubmit={e => e.preventDefault()}
         >
@@ -130,13 +139,26 @@ const FileUpload: FC<IFileUpload> = ({
             accept="image/*,application/pdf"
             onChange={handleChange}
           />
-          <div className="flex flex-col">
-            {group && (
-              <span className="inline-flex w-7/12 max-w-3xl items-center border-gray-300 py-1  text-sm text-gray-900">
-                {group}
-              </span>
+          <div
+            className={classNames('flex flex-col', { 'h-full': fullHeight })}
+          >
+            {group ||
+              (label && (
+                <span className="inline-flex w-7/12 max-w-3xl items-center border-gray-300 py-1  text-sm text-gray-900">
+                  {group || label}
+                </span>
+              ))}
+            {uploadedDiv && preview && (
+              <div className="mb-4 flex w-full">
+                <div
+                  onClick={handleRemove}
+                  className="ml-auto flex cursor-pointer items-center gap-2 text-sm text-error-600"
+                >
+                  <DeleteIcon />
+                  Delete
+                </div>
+              </div>
             )}
-
             {CustomLabel ? (
               <>
                 {!uploadedDiv && (
@@ -153,7 +175,7 @@ const FileUpload: FC<IFileUpload> = ({
                     id={name}
                     htmlFor={name}
                     className={classNames(
-                      'flex h-full w-full cursor-pointer items-center  rounded-r-lg border border-gray-200 bg-white px-4 py-3.5 text-gray-500 transition-colors ease-in-out hover:border-gray-900 active:border-gray-900 active:outline-none active:ring-gray-400 active:ring-opacity-30 active:ring-4',
+                      'flex h-full w-full cursor-pointer items-center  rounded-r-lg border border-gray-200 bg-white px-4 py-3.5 text-gray-500 transition-colors ease-in-out hover:border-gray-900 active:border-gray-900 active:outline-none active:ring-4 active:ring-gray-400 active:ring-opacity-30',
                       dragActive ? 'bg-white' : '',
                       { ['disabled']: disabled }
                     )}
@@ -178,26 +200,57 @@ const FileUpload: FC<IFileUpload> = ({
               </>
             )}
             {uploadedDiv && (
-              <div
-                className={classNames(
-                  'flex h-full w-full items-center justify-between rounded-lg border border-dotted border-gray-200 bg-white px-4 py-2 text-gray-500 transition-colors ease-in-out ',
-                  { ['rounded-r-lg']: !CustomLabel }
-                )}
-              >
-                <span className="overflow-hidden text-xs">{fileName}</span>
-                {uploading ? (
-                  <div className="rounded-lg bg-blue-50 p-2">
-                    <Status className="h-6 w-6 animate-spin  text-blue-400" />
+              <>
+                {preview ? (
+                  <div
+                    className={classNames(
+                      'flex h-full w-full cursor-pointer items-center  rounded-lg border  border-dashed border-gray-200 bg-white px-4 py-3.5 text-gray-500 transition-colors ease-in-out hover:border-gray-900 active:border-gray-900 active:outline-none active:ring-4 active:ring-gray-400 active:ring-opacity-30'
+                    )}
+                  >
+                    <div className="flex h-full w-full items-center justify-between text-sm">
+                      {uploading ? (
+                        <>
+                          <span className="overflow-hidden text-xs">
+                            {fileName}
+                          </span>
+                          <div className="rounded-lg bg-blue-50 p-2">
+                            <Status className="h-6 w-6 animate-spin  text-blue-400" />
+                          </div>
+                        </>
+                      ) : (
+                        <div className="relative h-0 w-full pb-[100%]">
+                          <img
+                            src={file}
+                            alt="preview"
+                            className="absolute h-full w-full object-cover"
+                          />
+                        </div>
+                      )}
+                    </div>
                   </div>
                 ) : (
                   <div
-                    onClick={handleRemove}
-                    className="cursor-pointer rounded-lg bg-error-50 p-2"
+                    className={classNames(
+                      'flex h-full w-full items-center justify-between rounded-lg border border-dotted border-gray-200 bg-white px-4 py-2 text-gray-500 transition-colors ease-in-out ',
+                      { ['rounded-r-lg']: !CustomLabel }
+                    )}
                   >
-                    <CloseCircle className="h-6 w-6 text-error-700" />
+                    <span className="overflow-hidden text-xs">{fileName}</span>
+                    {uploading ? (
+                      <div className="rounded-lg bg-blue-50 p-2">
+                        <Status className="h-6 w-6 animate-spin  text-blue-400" />
+                      </div>
+                    ) : (
+                      <div
+                        onClick={handleRemove}
+                        className="cursor-pointer rounded-lg bg-error-50 p-2"
+                      >
+                        <CloseCircle className="h-6 w-6 text-error-700" />
+                      </div>
+                    )}
                   </div>
                 )}
-              </div>
+              </>
             )}
           </div>
 

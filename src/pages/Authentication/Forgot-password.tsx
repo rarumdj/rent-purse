@@ -58,7 +58,7 @@ const ForgotPassword = () => {
           name="email"
           label="Email"
           placeholder="Enter your email here"
-          className="mb-2"
+          className="mb-3"
           register={register}
           rules={{
             required: true,

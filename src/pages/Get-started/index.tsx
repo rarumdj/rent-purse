@@ -8,6 +8,8 @@ import { useHistory } from 'react-router-dom';
 import IncomeRent from './IncomeRent';
 import BudgetGoal from './BudgetGoal';
 import LinkCard from './LinkCard';
+import DocumentUpload from './DocumentUpload';
+import HouseOwner from './HouseOwner';
 
 export interface IMenus {
   title: string;
@@ -183,10 +185,12 @@ const GetStarted = () => {
         return <BudgetGoal />;
       case 3:
         return <LinkCard />;
+      case 4:
+        return <DocumentUpload />;
+      case 5:
+        return <HouseOwner />;
     }
-    return;
   };
-  console.log(isOpen);
   return (
     <PageLayout>
       <div className="relative w-full bg-white">

@@ -19,7 +19,7 @@ const AppErrorFallback = () => {
                     Please contact the administrator or support for assistance
                     drop us an email on
                     <span className="px-1 font-medium">
-                      support@joinsteward.com{' '}
+                      support@rentpurse.com{' '}
                     </span>
                   </p>
                 }

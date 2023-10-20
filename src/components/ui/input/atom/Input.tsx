@@ -16,7 +16,7 @@ export type InputType = 'text' | 'email' | 'tel' | 'password' | 'date';
 export type InputProps = {
   id: string;
   name: string;
-  label?: string;
+  label?: string | ReactNode;
   type?: InputType;
   size?: InputSize;
   className?: string;
@@ -64,10 +64,10 @@ export const Input: FC<InputProps> = forwardRef<HTMLInputElement, InputProps>(
 
     return (
       <div className="relative">
-        <label htmlFor="email" className="text-sm leading-7 text-gray-600">
+        <label htmlFor="email" className="text-sm text-gray-600">
           {label}
         </label>
-        <div className="flex">
+        <div className="mt-1 flex">
           {group && (
             <span
               className={classNames(
@@ -84,7 +84,7 @@ export const Input: FC<InputProps> = forwardRef<HTMLInputElement, InputProps>(
             ref={ref}
             name={name}
             type={showPassord ? 'text' : type}
-            aria-label={label}
+            aria-label={String(label)}
             placeholder={placeholder}
             className={classNames([
               'relative inline-flex w-full border border-gray-300 bg-transparent leading-none text-gray-700 placeholder-gray-500 transition-colors ease-in-out placeholder:text-sm hover:border-gray-900 focus:border-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-400 focus:ring-opacity-30',

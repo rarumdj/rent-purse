@@ -9,6 +9,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         auth_bg: 'url(../src/assets/image/auth-bg.png)',
+        card_bg: 'url(../src/assets/image/card-bg.jpg)',
       },
       spacing: {
         hug: '86px',
