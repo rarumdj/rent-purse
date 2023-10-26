@@ -32,10 +32,15 @@ const Login = () => {
   const onSubmit = handleSubmit(data => {
     console.log(data);
   });
-
+  const handleBack = () => {
+    push('/login');
+  };
   return (
-    <AuthCard>
-      <div className="hidden items-center gap-2 md:flex">
+    <AuthCard goBack={handleBack}>
+      <div
+        className="hidden cursor-pointer items-center gap-2 md:flex"
+        onClick={handleBack}
+      >
         <ArrowLeft2 className="h-5 w-5" /> Go back
       </div>
       <div className="mt-5">

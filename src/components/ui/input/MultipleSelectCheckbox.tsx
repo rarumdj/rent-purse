@@ -96,7 +96,7 @@ export const theStyle = (error: any, { minWidth, maxWidth }: styleWidth) => {
       maxWidth,
       padding: '4px 4px',
       borderRadius: '8px',
-      backgroundColor: null,
+      backgroundColor: 'rgb(249 250 251 /1)',
       borderColor: state.isFocused
         ? '#000'
         : error

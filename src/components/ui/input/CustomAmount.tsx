@@ -77,7 +77,7 @@ export const CustomAmount = ({
             <div className="flex">
               <span
                 className={classNames(
-                  'px- inline-flex max-w-xs items-center overflow-hidden rounded-l-lg border border-r-0 border-gray-300 text-sm text-gray-900',
+                  'px- inline-flex max-w-xs items-center overflow-hidden rounded-l-lg border border-r-0 border-gray-300 bg-gray-50 text-sm text-gray-900',
                   { [groupClassName as string]: groupClassName }
                 )}
               >
@@ -89,7 +89,7 @@ export const CustomAmount = ({
                         amount: value?.amount,
                       });
                   }}
-                  className="w-[95px] appearance-none border-0 p-[10px] text-sm focus:outline-none focus:ring-0"
+                  className="bg-gray-50 w-[95px] appearance-none border-0 p-[10px] text-sm focus:outline-none focus:ring-0"
                 >
                   {currency.map((option: any) => (
                     <option key={option.value} value={option.value}>
@@ -100,7 +100,7 @@ export const CustomAmount = ({
               </span>
               <Cleave
                 className={classNames([
-                  'relative inline-flex w-full border border-gray-300 bg-transparent leading-none text-gray-700 placeholder-gray-500 transition-colors ease-in-out hover:border-gray-900 focus:border-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-400 focus:ring-opacity-30',
+                  'relative inline-flex w-full border border-gray-300 bg-gray-50 leading-none text-gray-700 placeholder-gray-500 transition-colors ease-in-out hover:border-gray-900 focus:border-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-400 focus:ring-opacity-30',
 
                   sizeMap[size],
                   { ['rounded-r-lg']: group, ['rounded-lg']: !group },

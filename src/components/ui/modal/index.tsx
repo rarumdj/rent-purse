@@ -65,7 +65,7 @@ const Modal = ({
 
           <button
             onClick={() => onClick(!active)}
-            className="absolute  right-0 hidden h-6 w-6 -translate-x-5 -translate-y-[2.2rem] rounded-full border outline-none  transition-all duration-500 ease-in-out hover:bg-red-500 hover:text-white md:flex xl:h-7 xl:w-7 xl:-translate-x-8 xl:-translate-y-[2.8rem]"
+            className="absolute  left-0 hidden h-6 w-6 translate-x-5 -translate-y-[2.2rem] rounded-full border outline-none  transition-all duration-500 ease-in-out hover:bg-red-500 hover:text-white md:flex xl:h-7 xl:w-7 xl:translate-x-8 xl:-translate-y-[2.8rem]"
           >
             <XMarkIcon className="m-auto h-4 w-4" />
           </button>

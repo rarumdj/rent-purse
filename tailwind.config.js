@@ -10,6 +10,7 @@ module.exports = {
       backgroundImage: {
         auth_bg: 'url(../src/assets/image/auth-bg.png)',
         card_bg: 'url(../src/assets/image/card-bg.jpg)',
+        auth_illustration: 'url(../src/assets/image/auth-illustration.svg)',
       },
       spacing: {
         hug: '86px',

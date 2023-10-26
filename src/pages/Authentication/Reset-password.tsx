@@ -36,10 +36,12 @@ const ResetPassword = () => {
   const onSubmit = handleSubmit(data => {
     console.log(data);
   });
-
+  const handleBack = () => {
+    push('/forgot-password');
+  };
   return (
-    <AuthCard>
-      <div className="hidden items-center gap-2 md:flex">
+    <AuthCard goBack={handleBack}>
+      <div className="hidden items-center gap-2 md:flex cursor-pointer" onClick={handleBack}>
         <ArrowLeft2 className="h-5 w-5" /> Go back
       </div>
       <div className="mt-5">
