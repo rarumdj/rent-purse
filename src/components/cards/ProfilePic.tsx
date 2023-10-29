@@ -12,7 +12,7 @@ const ProfilePicCard = ({
   avatar,
   name,
   email,
-  nameInitials = 'ME',
+  nameInitials,
   success,
 }: ProfilePicProps) => {
   return (
@@ -21,11 +21,11 @@ const ProfilePicCard = ({
         <>
           {avatar ? (
             <img src={avatar} alt="avatar" className="h-10 w-10 rounded-full" />
-          ) : (
-            <div className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-full bg-gray-100 p-6 border border-gray-200">
+          ) : nameInitials ? (
+            <div className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-full border border-gray-200 bg-gray-100 p-6">
               <h1 className="text-xl text-primary-600 ">{nameInitials}</h1>
             </div>
-          )}
+          ) : null}
 
           <div>
             <h5 className="text-sm font-medium">{name}</h5>

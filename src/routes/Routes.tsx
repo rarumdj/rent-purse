@@ -1,12 +1,12 @@
-import ForgotPassword from 'pages/Authentication/Forgot-password';
-import Login from 'pages/Authentication/Login';
-import Register from 'pages/Authentication/Register';
-import ResetPassword from 'pages/Authentication/Reset-password';
-import GetStarted from 'pages/Get-started';
-import PageNotFound from 'pages/PageNotFound';
-import Plans from 'pages/Plans';
+import { lazy } from 'react';
 
-// const Dashboard = lazy(() => import('pages/dashboard'));
+const ForgotPassword = lazy(() => import('pages/Authentication/Forgot-password'));
+const Login = lazy(() => import('pages/Authentication/Login'));
+const Register = lazy(() => import('pages/Authentication/Register'));
+const ResetPassword = lazy(() => import('pages/Authentication/Reset-password'));
+const GetStarted = lazy(() => import('pages/Get-started'));
+const PageNotFound = lazy(() => import('pages/PageNotFound'));
+const Plans = lazy(() => import('pages/Plans'));
 
 export const dashboardRoutes = [
   {

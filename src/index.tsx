@@ -11,6 +11,7 @@ import * as serviceWorker from './serviceWorker';
 import { PersistGate } from 'redux-persist/integration/react';
 import AppErrorFallback from 'components/errorBoundaries/AppErrorFallback';
 import { ErrorBoundary } from 'react-error-boundary';
+import PageLoading from 'components/ui/page-loading';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -18,7 +19,13 @@ const root = ReactDOM.createRoot(
 
 const RootIndex = () => {
   return (
-    <Suspense fallback={<div />}>
+    <Suspense
+      fallback={
+        <div className="flex h-[60vh] w-full items-center justify-center">
+          <PageLoading />
+        </div>
+      }
+    >
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <ConnectedRouter history={history}>

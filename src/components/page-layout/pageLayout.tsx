@@ -1,50 +1,41 @@
 import classNames from 'classnames';
-import Button from 'components/button/button';
 import PageLoading from 'components/ui/page-loading';
-import { ArrowLeft } from 'iconsax-react';
 import React, { FC } from 'react';
-import { useHistory } from 'react-router-dom';
-import { ReactComponent as LampCharge } from '../../assets/icons/lamp-charge.svg';
 
 interface IpageLayout {
-  count?: number;
-  showCount?: boolean;
   children: React.ReactNode;
-  content?: React.ReactNode;
   containerClassName?: string;
   layoutClassName?: string;
-  showInfo?: boolean;
-  showBackBtn?: boolean;
   isLoading?: boolean;
-  hideTitle?: boolean;
+  px?: string;
 }
 const PageLayout: FC<IpageLayout> = ({
   children,
-  count,
-  showCount,
-  content,
   containerClassName,
   layoutClassName,
-  showInfo = true,
-  showBackBtn,
   isLoading,
-  hideTitle,
+  px,
 }) => {
-  const { goBack } = useHistory();
-
   return (
-    <section className="flex h-full">
+    <section
+      className={classNames('flex h-full w-full', !px ? 'layout-px' : px)}
+    >
       <div
         className={classNames(
           'relative mx-auto mb-6 flex h-full w-full flex-wrap bg-white',
           { [layoutClassName as string]: layoutClassName }
         )}
       >
-        <div className="w-full px-4 pb-10 pt-4 lg:px-8 ">
+        <div
+          className={classNames(
+            'w-full  pb-10 pt-8',
+            !px ? 'px-4 lg:px-8' : px
+          )}
+        >
           <div className="w-full">
             <div className="relative mx-auto h-full min-w-0 max-w-full">
               <div
-                className={classNames('mx-auto flex w-full pt-4', {
+                className={classNames('mx-auto flex w-full', {
                   [containerClassName as string]: containerClassName,
                 })}
               >
