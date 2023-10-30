@@ -19,36 +19,28 @@ const root = ReactDOM.createRoot(
 
 const RootIndex = () => {
   return (
-    <Suspense
-      fallback={
-        <div className="flex h-[60vh] w-full items-center justify-center">
-          <PageLoading />
-        </div>
-      }
-    >
-      <Provider store={store}>
-        <PersistGate loading={null} persistor={persistor}>
-          <ConnectedRouter history={history}>
-            <ErrorBoundary fallback={<AppErrorFallback />}>
-              <App />
-            </ErrorBoundary>
-          </ConnectedRouter>
-        </PersistGate>
-        <ToastContainer
-          position="bottom-center"
-          transition={Slide}
-          autoClose={2000}
-          hideProgressBar={true}
-          newestOnTop
-          closeOnClick
-          rtl={false}
-          limit={2}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-        />
-      </Provider>
-    </Suspense>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <ConnectedRouter history={history}>
+          <ErrorBoundary fallback={<AppErrorFallback />}>
+            <App />
+          </ErrorBoundary>
+        </ConnectedRouter>
+      </PersistGate>
+      <ToastContainer
+        position="bottom-center"
+        transition={Slide}
+        autoClose={2000}
+        hideProgressBar={true}
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        limit={2}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
+    </Provider>
   );
 };
 
