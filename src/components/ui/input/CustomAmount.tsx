@@ -13,7 +13,7 @@ type CleaveControllerProps = {
   control: any;
   errors: any;
   size?: InputSize;
-  label?: string;
+  label?: string | React.ReactNode;
   group?: any;
   rules: any;
   id: string;
@@ -89,7 +89,7 @@ export const CustomAmount = ({
                         amount: value?.amount,
                       });
                   }}
-                  className="bg-gray-50 w-[95px] appearance-none border-0 p-[10px] text-sm focus:outline-none focus:ring-0"
+                  className="w-[95px] appearance-none border-0 bg-gray-50 p-[10px] text-sm focus:outline-none focus:ring-0"
                 >
                   {currency.map((option: any) => (
                     <option key={option.value} value={option.value}>

@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import React from 'react';
 
 interface IsectionTag {
-  title: string;
+  title: string | React.ReactNode;
   description?: string;
   type?: 'small' | 'big';
   className?: string;
@@ -21,7 +21,7 @@ const SectionTag = ({
 }: IsectionTag) => {
   return (
     <div
-      className={classNames('flex items-center gap-2 flex-wrap', {
+      className={classNames('flex flex-wrap items-center gap-2', {
         [className as string]: className,
       })}
     >

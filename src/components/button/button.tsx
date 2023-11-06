@@ -41,7 +41,7 @@ const Button = forwardRef<HTMLButtonElement, buttonProps>((props, ref) => {
           ? 'rounded-md border border-[#D0D5DD] bg-transparent text-black '
           : outlineRed
           ? 'rounded-md border border-red-500 bg-transparent text-red-600'
-          : 'rounded-lg  bg-primary  text-white shadow-md',
+          : 'rounded-md  bg-primary  text-white shadow-md',
         rest.disabled ? 'cursor-not-allowed' : '',
         { [className as string]: className },
         { ['w-full']: fullWidth }

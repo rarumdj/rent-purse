@@ -91,7 +91,7 @@ export const theStyle = (error: any, { minWidth, maxWidth }: styleWidth) => {
       ...base,
       //   border: state.isFocused ? '#000' : base.color,
       // This line disable the blue border
-      minHeight: '45px',
+      minHeight: '48px',
       minWidth,
       maxWidth,
       padding: '4px 4px',

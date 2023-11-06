@@ -12,6 +12,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import AppErrorFallback from 'components/errorBoundaries/AppErrorFallback';
 import { ErrorBoundary } from 'react-error-boundary';
 import PageLoading from 'components/ui/page-loading';
+import 'react-circular-progressbar/dist/styles.css';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

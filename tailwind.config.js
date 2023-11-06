@@ -11,6 +11,8 @@ module.exports = {
         auth_bg: 'url(../src/assets/image/auth-bg.png)',
         card_bg: 'url(../src/assets/image/card-bg.jpg)',
         auth_illustration: 'url(../src/assets/image/auth-illustration.svg)',
+        star_bg: 'url(../src/assets/image/star-bg.png)',
+        profile_star_bg: 'url(../src/assets/image/profile-star.png)',
       },
       spacing: {
         hug: '86px',
@@ -32,7 +34,7 @@ module.exports = {
         'gray-25': '#FCFCFD',
         'gray-30': '#667085',
         'main-surface': '#F8F8F8',
-        'main-header':'#0A024E',
+        'main-header': '#0A024E',
 
         // success
         'success-25': '#d1fadf',

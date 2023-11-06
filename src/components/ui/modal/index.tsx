@@ -12,6 +12,7 @@ type modalType = {
   bg?: boolean;
   size?: string;
   position?: 'side' | 'center';
+  px?: boolean;
 };
 
 const Modal = ({
@@ -22,6 +23,7 @@ const Modal = ({
   bg = true,
   size,
   position = 'side',
+  px = true,
 }: modalType) => {
   const ref = useRef(null);
   const buttonClickedOutside = useOutsideClick(ref);
@@ -31,6 +33,18 @@ const Modal = ({
       onClick(!active);
     }
   }, [buttonClickedOutside, onClick, active]);
+
+  useEffect(() => {
+    if (active) {
+      document.body.classList.add('overflow-hidden'); // Add the class to disable scrolling
+    } else {
+      document.body.classList.remove('overflow-hidden'); // Remove the class to re-enable scrolling
+    }
+
+    return () => {
+      document.body.classList.remove('overflow-hidden'); // Make sure to remove the class on unmount
+    };
+  }, [active]);
 
   const SideModal = (
     <>
@@ -43,7 +57,7 @@ const Modal = ({
       <div
         // tabindex="-1"
         className={classNames(
-          'hide-scrollbar h-full fixed bottom-0 right-0 top-0 z-[9999] flex w-full transform flex-col items-center overflow-x-scroll  overflow-y-scroll bg-white bg-opacity-50 transition-all duration-300 md:w-fit',
+          'hide-scrollbar fixed bottom-0 right-0 top-0 z-[9999] flex h-full w-full transform flex-col items-center overflow-x-scroll  overflow-y-scroll bg-white bg-opacity-50 transition-all duration-300 md:w-fit',
           active
             ? 'transform md:translate-x-0'
             : 'pointer-events-none translate-x-0 translate-y-[100%] md:translate-x-[100%] md:translate-y-0'
@@ -52,11 +66,12 @@ const Modal = ({
         <div
           ref={ref}
           className={classNames(
-            'hide-scrollbar relative mx-auto h-full w-full max-w-full origin-bottom overflow-scroll px-4 py-4 pt-20 md:max-w-lg md:px-8',
-            { ['bg-white']: bg }
+            'hide-scrollbar relative mx-auto h-full w-full  max-w-full origin-bottom overflow-scroll py-4 pt-20 md:max-w-lg',
+            { ['bg-white']: bg },
+            { ['px-4 md:px-8']: px }
           )}
         >
-          <div className="fixed left-0 right-0 top-0 block w-full border-b bg-white py-6 md:hidden">
+          <div className="fixed z-50 left-0 right-0 top-0 block w-full border-b bg-white py-6 md:hidden">
             <ArrowLeft
               onClick={() => onClick(!active)}
               className="ml-4 cursor-pointer"
@@ -65,7 +80,7 @@ const Modal = ({
 
           <button
             onClick={() => onClick(!active)}
-            className="absolute  left-0 hidden h-6 w-6 translate-x-5 -translate-y-[2.2rem] rounded-full border outline-none  transition-all duration-500 ease-in-out hover:bg-red-500 hover:text-white md:flex xl:h-7 xl:w-7 xl:translate-x-8 xl:-translate-y-[2.8rem]"
+            className="absolute  left-0 hidden h-6 w-6 -translate-y-[2.2rem] translate-x-5 rounded-full border outline-none  transition-all duration-500 ease-in-out hover:bg-red-500 hover:text-white md:flex xl:h-7 xl:w-7 xl:-translate-y-[2.8rem] xl:translate-x-8"
           >
             <XMarkIcon className="m-auto h-4 w-4" />
           </button>

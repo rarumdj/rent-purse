@@ -1,5 +1,6 @@
 import Button from 'components/button/button';
 import { CustomAmount } from 'components/ui/input/CustomAmount';
+import CustomInputLabel from 'components/ui/input/CustomInputLabel';
 import ModalHeader from 'components/ui/modal/ModalHeader';
 import React from 'react';
 import { useForm } from 'react-hook-form';
@@ -37,7 +38,7 @@ const IncomeRent = () => {
         <CustomAmount
           currency={currencyOptions}
           name="monthly_income"
-          label="Expected Monthly Income *"
+          label={<CustomInputLabel title="Expected Monthly Income *" />}
           control={control}
           defaultValue=""
           errors={errors}
@@ -50,7 +51,7 @@ const IncomeRent = () => {
         <CustomAmount
           currency={currencyOptions}
           name="annual_rent"
-          label="Annual house rent *"
+          label={<CustomInputLabel title="Annual house rent *" />}
           control={control}
           defaultValue=""
           errors={errors}

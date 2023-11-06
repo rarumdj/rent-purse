@@ -10,7 +10,7 @@ import { theStyle } from './MultipleSelectCheckbox';
 
 type SelectProps = Props & {
   id: string;
-  label: string;
+  label: string | React.ReactNode;
   createable?: boolean;
   control: any;
   name: any;
@@ -38,7 +38,7 @@ const CustomSelect: FC<SelectProps> = props => {
         rules={rules}
         render={({ field: { onChange, value } }) => {
           return (
-            <div className='mt-1'>
+            <div className="mt-1">
               {createable ? (
                 <CreatableSelect
                   isClearable

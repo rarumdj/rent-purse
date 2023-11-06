@@ -1,5 +1,6 @@
 import Button from 'components/button/button';
 import { CustomAmount } from 'components/ui/input/CustomAmount';
+import CustomInputLabel from 'components/ui/input/CustomInputLabel';
 import CustomSelect from 'components/ui/input/CustomSelect';
 import { FormCheckbox } from 'components/ui/input/FormCheckbox';
 import { FormInput } from 'components/ui/input/FormInput';
@@ -49,7 +50,9 @@ const HouseOwner = () => {
           id="rent_due"
           type="text"
           name="rent_due"
-          label="Landlord’s or Property Mgt Co. Name"
+          label={
+            <CustomInputLabel title="Landlord’s or Property Mgt Co. Name" />
+          }
           placeholder="Enter name"
           className="mb-3"
           register={register}
@@ -64,7 +67,9 @@ const HouseOwner = () => {
           errors={errors}
           control={control}
           placeholder="(234) 000-0000"
-          label="Landlord’s or Property Mgt Co. Contact Number"
+          label={
+            <CustomInputLabel title="Landlord’s or Property Mgt Co. Contact Number" />
+          }
           classNames="mb-3"
           setValue={(localFormat: any, international: any, countryCode: any) =>
             handlePhoneNumberChange(localFormat, international, countryCode)
@@ -77,7 +82,9 @@ const HouseOwner = () => {
           type="text"
           name="rent_due"
           className="mb-3"
-          label="Landlord’s or Property Mgt Co. Address"
+          label={
+            <CustomInputLabel title="Landlord’s or Property Mgt Co. Address" />
+          }
           placeholder="Enter address"
           register={register}
           rules={{
@@ -89,7 +96,9 @@ const HouseOwner = () => {
         <div className="mb-3">
           <CustomSelect
             id="bank"
-            label="Landlord’s or Property Mgt Co. Bank"
+            label={
+              <CustomInputLabel title="Landlord’s or Property Mgt Co. Bank" />
+            }
             placeholder="Select bank"
             options={BankList}
             control={control}
@@ -104,8 +113,10 @@ const HouseOwner = () => {
           type="text"
           name="rent_due"
           className="my-3"
-          label="Landlord’s or Property Mgt Co. Account Number"
-          placeholder='Enter account number'
+          label={
+            <CustomInputLabel title="Landlord’s or Property Mgt Co. Account Number" />
+          }
+          placeholder="Enter account number"
           register={register}
           rules={{
             required: true,

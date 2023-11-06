@@ -1,7 +1,9 @@
 import ProfilePicCard from 'components/cards/ProfilePic';
 import FloatingSupport from 'components/flaotingsupport';
 import SideBar from 'components/sidebar/sidebar';
+import { useAppSelector } from 'hooks/redux-hooks';
 import {
+  ArrowLeft,
   CardSend,
   DirectboxSend,
   Gift,
@@ -18,6 +20,8 @@ import {
   TransmitSqaure2,
   UserSquare,
 } from 'iconsax-react';
+import React from 'react';
+import { useHistory } from 'react-router-dom';
 
 export const NavLinks = [
   {
@@ -74,6 +78,20 @@ export const NavLinks = [
 ];
 
 const DashboardLayout = ({ children }: any) => {
+  const { push } = useHistory();
+  const {
+    breadcrumbs: { currentPage, previousPages, previousRoute },
+  } = useAppSelector(({ common }) => common);
+  const goBack = () => {
+    push(previousRoute);
+  };
+
+  const formattedPage = previousPages.map((item, index) => (
+    <React.Fragment key={item}>
+      {item}
+      {' / '}
+    </React.Fragment>
+  ));
   return (
     <div className="relative flex min-h-screen flex-col bg-white md:flex-row">
       <aside className="sticky left-0 right-0 top-0 z-50 h-fit flex-initial overflow-x-clip md:flex md:h-screen">
@@ -81,6 +99,18 @@ const DashboardLayout = ({ children }: any) => {
       </aside>
       <main className="min-h-screen flex-1 overflow-y-scroll">
         <div className="fixed inset-0 z-40 hidden h-[89px] w-full bg-white px-8 md:flex">
+          {currentPage && (
+            <div className="mr-auto flex h-full  translate-x-64 items-center gap-2 text-xl font-semibold text-main-header">
+              <span
+                onClick={goBack}
+                className="flex cursor-pointer items-center gap-2 text-gray-400"
+              >
+                <ArrowLeft className="h-5 w-5 text-black" />
+                {formattedPage}
+              </span>{' '}
+              {currentPage}
+            </div>
+          )}
           <div className="ml-auto flex h-full items-center gap-8">
             <div>
               <NotificationBing className="h-5 w-5 text-black" />

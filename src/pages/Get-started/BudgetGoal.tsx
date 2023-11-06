@@ -1,5 +1,6 @@
 import Button from 'components/button/button';
 import { CustomAmount } from 'components/ui/input/CustomAmount';
+import CustomInputLabel from 'components/ui/input/CustomInputLabel';
 import { FormCheckbox } from 'components/ui/input/FormCheckbox';
 import { FormInput } from 'components/ui/input/FormInput';
 import ModalHeader from 'components/ui/modal/ModalHeader';
@@ -41,14 +42,12 @@ const BudgetGoal = () => {
       />
       <form className="mt-8">
         <div>
-          <h6 className="md:text-md text-sm font-medium text-main-header">
-            Saving Frequency
-          </h6>
-          <p className="md:text-sm text-xs text-gray-600">
-            Choose how often you would like to save.
-          </p>
+          <CustomInputLabel
+            title="Saving Frequency"
+            subtitle="Choose how often you would like to save."
+          />
 
-          <div className="flex gap-3">
+          <div className="mt-2 flex gap-3">
             <FormCheckbox<IForms>
               id="frequency"
               name="frequency"
@@ -58,7 +57,7 @@ const BudgetGoal = () => {
               // defaultChecked={notifications?.transactions.notifyInflow.includes(
               //   'email'
               // )}
-              className="!my-4 w-full"
+              className="!mb-4 w-full"
               wrapperClass="!flex !items-start"
               register={register}
               rules={{
@@ -75,7 +74,7 @@ const BudgetGoal = () => {
               // defaultChecked={notifications?.transactions.notifyInflow.includes(
               //   'email'
               // )}
-              className="!my-4 w-full"
+              className="!mb-4 w-full"
               wrapperClass="!flex !items-start"
               register={register}
               rules={{
@@ -92,7 +91,7 @@ const BudgetGoal = () => {
               // defaultChecked={notifications?.transactions.notifyInflow.includes(
               //   'email'
               // )}
-              className="!my-4 w-full"
+              className="!mb-4 w-full"
               wrapperClass="!flex !items-start"
               register={register}
               rules={{
@@ -105,7 +104,7 @@ const BudgetGoal = () => {
         <CustomAmount
           currency={currencyOptions}
           name="amount"
-          label="Amount *"
+          label={<CustomInputLabel title="Amount *" />}
           control={control}
           defaultValue=""
           errors={errors}
@@ -116,17 +115,18 @@ const BudgetGoal = () => {
         />
 
         <div className="mt-4">
-          <h6 className="md:text-md text-sm font-medium text-main-header">
+          <h6 className="text-sm font-medium text-main-header md:text-md">
             Savings Automation Status
           </h6>
           <FormCheckbox<IForms>
             id="automation_status"
             name="automation_status"
             label={
-              <div className="text-xs">
-                Enable for automatic contributions to make savings easy and
-                effortless.
-              </div>
+              <CustomInputLabel
+                title="Savings Automation Status"
+                subtitle="Enable for automatic contributions to make savings easy and
+              effortless."
+              />
             }
             type="checkbox"
             className="!mb-4 mt-2 w-full"
@@ -140,15 +140,15 @@ const BudgetGoal = () => {
         </div>
 
         <div className="mb-3">
-          <h6 className="md:text-md text-sm font-medium text-main-header">
-            Rent Due Date
-          </h6>
-          <p className="md:text-sm text-xs text-gray-600">
-            Specify the due date for your upcoming rent payment.
-          </p>
           <FormInput<IForms>
             id="rent_due"
             type="date"
+            label={
+              <CustomInputLabel
+                title="Rent Due Date"
+                subtitle="Specify the due date for your upcoming rent payment."
+              />
+            }
             name="rent_due"
             className="my-3"
             register={register}
@@ -160,15 +160,15 @@ const BudgetGoal = () => {
         </div>
 
         <div className="mb-3">
-          <h6 className="md:text-md text-sm font-medium text-main-header">
-            Target Date
-          </h6>
-          <p className="md:text-sm text-xs text-gray-600">
-            When do you aim to reach your rent savings goal
-          </p>
           <FormInput<IForms>
             id="target_date"
             type="date"
+            label={
+              <CustomInputLabel
+                title="Target Date"
+                subtitle="When do you aim to reach your rent savings goal"
+              />
+            }
             name="target_date"
             className="my-3"
             register={register}
