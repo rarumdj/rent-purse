@@ -6,7 +6,7 @@ interface ICustomerLable {
 }
 const CustomInputLabel = ({ title, subtitle }: ICustomerLable) => {
   return (
-    <div>
+    <div className='mb-1'>
       <h6 className="text-sm font-medium text-main-header md:text-sm">
         {title}
       </h6>

@@ -26,9 +26,9 @@ const CustomMenu: FC<ICustomMenu> = ({
   const { push } = useHistory();
   return (
     <div>
-      <Menu as="div" className="relative inline-block text-left">
-        <div>
-          <Menu.Button>
+      <Menu as="div" className="relative inline-block text-left w-full">
+        <div className='w-full'>
+          <Menu.Button className='w-full'>
             {({ open }) => (
               <>{activeButton ? <>{open ? activeButton : button}</> : button}</>
             )}

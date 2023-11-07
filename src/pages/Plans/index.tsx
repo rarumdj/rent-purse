@@ -69,7 +69,7 @@ const Plans = () => {
               Fund account <ArrowRight className="h-4 w-4 text-black" />
             </Button>
           </div>
-          <div className="relative my-8 grid w-full items-center justify-between rounded-lg bg-main-header bg-star_bg bg-cover p-4 md:grid-cols-12">
+          <div className="relative my-8 flex flex-wrap gap-3 w-full items-center justify-between rounded-lg bg-main-header bg-star_bg bg-cover p-4 md:grid-cols-12">
             <SectionTag
               className="md:col-start-1 md:col-end-11"
               image={
@@ -82,7 +82,7 @@ const Plans = () => {
               titleClass="!text-white"
             />
             <Button
-              className="mt-3 w-fit flex h-9 items-center justify-center gap-2 py-0 text-sm text-white md:col-start-11 md:col-end-13 md:mt-0"
+              className="mt-3 w-fit flex h-9 whitespace-nowrap items-center justify-center gap-2 py-0 text-sm text-white md:col-start-11 md:col-end-13 md:mt-0"
               btnType="withoutbg"
               border
               animate={false}
@@ -91,9 +91,9 @@ const Plans = () => {
             </Button>
           </div>
 
-          <div className="He relative my-8 grid w-full justify-between rounded-lg bg-profile_star_bg bg-cover p-4 md:grid-cols-12">
+          <div className="He relative my-8 flex gap-3 flex-wrap w-full justify-between rounded-lg bg-profile_star_bg bg-cover p-4 md:grid-cols-12">
             <SectionTag
-              className="md:col-start-1 md:col-end-11"
+              className=""
               image={
                 <div className="h-16 w-16">
                   <CircularProgressbar
@@ -111,7 +111,7 @@ const Plans = () => {
               descClass="!text-white"
               titleClass="!leading-tight "
             />
-            <Button className="mt-3 flex w-fit h-9 items-center justify-center gap-2 py-0 text-sm text-white md:col-start-11 md:col-end-13 md:mt-0">
+            <Button className="mt-3 flex w-fit h-9 whitespace-nowrap items-center justify-center gap-2 py-0 text-sm text-white md:mt-0">
               Complete profile <ArrowRight2 className="h-3 w-3 text-white" />
             </Button>
           </div>
@@ -267,7 +267,7 @@ const Plans = () => {
       </section>
 
       <Modal px={false} active={isOpen} onClick={() => setIsOpen(false)}>
-        <LinkCard />
+        <CreatePlan />
       </Modal>
     </PageLayout>
   );
