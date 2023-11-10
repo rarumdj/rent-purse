@@ -31,12 +31,30 @@ import { ReactComponent as Kuda } from 'assets/image/kuda.svg';
 import { ReactComponent as QuestionMark } from 'assets/icons/question-mark.svg';
 import Modal from 'components/ui/modal';
 import WithdrawFunds from './modals/WithdrawFunds';
+import DeletePlan from './modals/DeletePlan';
+import UpdateAccount from './modals/UpdateAccount';
+import ShareLink from './modals/ShareLink';
 const PlanDetails = () => {
   const dispatch = useAppDispatch();
   const [isOpen, setIsOpen] = useState(false);
+  const [isShareLink, setIsShareLink] = useState(false);
+  const [isEditPay, setIsEditPay] = useState(false);
+  const [isDelete, setIsDelete] = useState(false);
 
   const handleCreatePlan = () => {
     setIsOpen(true);
+  };
+
+  const handleDeletePlan = () => {
+    setIsDelete(true);
+  };
+
+  const handleEditPay = () => {
+    setIsEditPay(true);
+  };
+
+  const handleShare = () => {
+    setIsShareLink(true);
   };
   useEffect(() => {
     dispatch(
@@ -53,9 +71,9 @@ const PlanDetails = () => {
   }, []);
 
   const linkList = [
-    { name: 'Create payment link', icon: Link },
+    { name: 'Create payment link', icon: Link, action: handleShare },
     { name: 'Withdraw funds', icon: MoneySend, action: handleCreatePlan },
-    { name: 'Delete plan', icon: Trash },
+    { name: 'Delete plan', icon: Trash, action: handleDeletePlan },
   ];
   const dropDown = (
     <div className="flex h-11 w-full transform cursor-pointer items-center justify-center gap-2 rounded-md border border-gray-300 bg-transparent px-4 py-3 text-sm font-medium text-black duration-200  focus:outline-none disabled:opacity-50">
@@ -116,7 +134,10 @@ const PlanDetails = () => {
           </div>
           <div className="mt-6 space-y-4">
             <div className="space-y-3 rounded-lg border border-gray-200 bg-gray-50 p-2 md:w-fit">
-              <div className="flex w-fit items-center gap-1 rounded-md border border-gray-200 bg-[#F8F8F8] p-2 text-sm text-gray-900">
+              <div
+                onClick={handleEditPay}
+                className="flex w-fit cursor-pointer items-center gap-1 rounded-md border border-gray-200 bg-[#F8F8F8] p-2 text-sm text-gray-900"
+              >
                 <Send2 className="h-3.5 w-3.5 text-success-600" /> Pay to{' '}
                 <Edit2 className="h-3.5 w-3.5 text-gray-600" />
               </div>
@@ -281,6 +302,25 @@ const PlanDetails = () => {
 
       <Modal active={isOpen} onClick={() => setIsOpen(false)}>
         <WithdrawFunds />
+      </Modal>
+      <Modal active={isEditPay} onClick={() => setIsEditPay(false)}>
+        <UpdateAccount />
+      </Modal>
+      <Modal
+        px={false}
+        active={isShareLink}
+        onClick={() => setIsShareLink(false)}
+      >
+        <ShareLink />
+      </Modal>
+
+      <Modal
+        position="center"
+        active={isDelete}
+        onClick={() => setIsDelete(false)}
+        close
+      >
+        <DeletePlan />
       </Modal>
     </PageLayout>
   );

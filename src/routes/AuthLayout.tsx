@@ -1,5 +1,4 @@
 import FloatingSupport from 'components/flaotingsupport';
-import AuthNavbar from 'components/navbar/auth-navbar';
 
 const AuthLayout = ({ children }: any) => {
   return (

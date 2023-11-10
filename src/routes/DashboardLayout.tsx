@@ -4,17 +4,8 @@ import SideBar from 'components/sidebar/sidebar';
 import { useAppSelector } from 'hooks/redux-hooks';
 import {
   ArrowLeft,
-  CardSend,
-  DirectboxSend,
   Gift,
-  Graph,
-  HomeTrendUp,
-  MoneyTick,
-  Notepad2,
   NotificationBing,
-  Receipt2,
-  Receipt21,
-  ReceiptText,
   Setting3,
   Star,
   TransmitSqaure2,
@@ -86,7 +77,7 @@ const DashboardLayout = ({ children }: any) => {
     push(previousRoute);
   };
 
-  const formattedPage = previousPages.map((item, index) => (
+  const formattedPage = previousPages.map(item => (
     <React.Fragment key={item}>
       {item}
       {' / '}

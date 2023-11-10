@@ -64,7 +64,7 @@ export const Input: FC<InputProps> = forwardRef<HTMLInputElement, InputProps>(
 
     return (
       <div className="relative">
-        <label htmlFor="email" className="text-sm text-gray-600">
+        <label htmlFor={name} className="text-sm text-gray-600">
           {label}
         </label>
         <div className={classNames('flex', { ['mt-1']: group })}>

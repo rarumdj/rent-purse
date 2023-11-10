@@ -27,14 +27,26 @@ import EmptyCard from 'components/cards/EmptyCard';
 import Modal from 'components/ui/modal';
 import CreatePlan from './modals/CreatePlan';
 import LinkCard from './modals/LinkCard';
+import { useHistory } from 'react-router-dom';
 
 const Plans = () => {
   const percentage = 66;
-
+  const { push } = useHistory();
   const [isOpen, setIsOpen] = useState(false);
+  const [isFund, setIsFund] = useState(false);
 
   const handleCreatePlan = () => {
     setIsOpen(true);
+  };
+  const handleManage = () => {
+    push('/plan/details');
+  };
+
+  const handleGotoAll = () => {
+    push('/plan/all');
+  };
+  const handleFund = () => {
+    setIsFund(true);
   };
   return (
     <PageLayout px="px-0">
@@ -65,11 +77,14 @@ const Plans = () => {
             >
               <AddCircle className="h-4 w-4 text-white" /> New plan
             </Button>
-            <Button className="flex h-11 min-w-full items-center justify-center gap-2 !bg-[#29C775] py-0 text-sm !text-black shadow-xs md:min-w-[200px]">
+            <Button
+              onClick={handleFund}
+              className="flex h-11 min-w-full items-center justify-center gap-2 !bg-[#29C775] py-0 text-sm !text-black shadow-xs md:min-w-[200px]"
+            >
               Fund account <ArrowRight className="h-4 w-4 text-black" />
             </Button>
           </div>
-          <div className="relative my-8 flex flex-wrap gap-3 w-full items-center justify-between rounded-lg bg-main-header bg-star_bg bg-cover p-4 md:grid-cols-12">
+          <div className="relative my-8 flex w-full flex-wrap items-center justify-between gap-3 rounded-lg bg-main-header bg-star_bg bg-cover p-4 md:grid-cols-12">
             <SectionTag
               className="md:col-start-1 md:col-end-11"
               image={
@@ -82,7 +97,7 @@ const Plans = () => {
               titleClass="!text-white"
             />
             <Button
-              className="mt-3 w-fit flex h-9 whitespace-nowrap items-center justify-center gap-2 py-0 text-sm text-white md:col-start-11 md:col-end-13 md:mt-0"
+              className="mt-3 flex h-9 w-fit items-center justify-center gap-2 whitespace-nowrap py-0 text-sm text-white md:col-start-11 md:col-end-13 md:mt-0"
               btnType="withoutbg"
               border
               animate={false}
@@ -91,7 +106,7 @@ const Plans = () => {
             </Button>
           </div>
 
-          <div className="He relative my-8 flex gap-3 flex-wrap w-full justify-between rounded-lg bg-profile_star_bg bg-cover p-4 md:grid-cols-12">
+          <div className="He relative my-8 flex w-full flex-wrap justify-between gap-3 rounded-lg bg-profile_star_bg bg-cover p-4 md:grid-cols-12">
             <SectionTag
               className=""
               image={
@@ -111,7 +126,10 @@ const Plans = () => {
               descClass="!text-white"
               titleClass="!leading-tight "
             />
-            <Button className="mt-3 flex w-fit h-9 whitespace-nowrap items-center justify-center gap-2 py-0 text-sm text-white md:mt-0">
+            <Button
+              onClick={() => push('/get-started')}
+              className="mt-3 flex h-9 w-fit items-center justify-center gap-2 whitespace-nowrap py-0 text-sm text-white md:mt-0"
+            >
               Complete profile <ArrowRight2 className="h-3 w-3 text-white" />
             </Button>
           </div>
@@ -122,7 +140,10 @@ const Plans = () => {
               <Moneys className="h-5 w-5" />
               Saving plans
             </div>
-            <div className="flex cursor-pointer items-center gap-1 text-sm text-[#157B6F]">
+            <div
+              onClick={handleGotoAll}
+              className="flex cursor-pointer items-center gap-1 text-sm text-[#157B6F]"
+            >
               See all <ArrowRight2 className="h-3.5 w-3.5 text-gray-600" />
             </div>
           </div>
@@ -133,7 +154,10 @@ const Plans = () => {
                   <TickCircle className="h-3.5 w-3.5 text-success-600" /> Plan
                   type
                 </div>
-                <div className="flex cursor-pointer items-center gap-1 text-sm text-primary">
+                <div
+                  onClick={handleManage}
+                  className="flex cursor-pointer items-center gap-1 text-sm text-primary"
+                >
                   Manage <ArrowRight2 className="h-3.5 w-3.5 text-gray-600" />
                 </div>
               </div>
@@ -186,7 +210,10 @@ const Plans = () => {
                   <TickCircle className="h-3.5 w-3.5 text-success-600" /> Plan
                   type
                 </div>
-                <div className="flex cursor-pointer items-center gap-1 text-sm text-primary">
+                <div
+                  onClick={handleManage}
+                  className="flex cursor-pointer items-center gap-1 text-sm text-primary"
+                >
                   Manage <ArrowRight2 className="h-3.5 w-3.5 text-gray-600" />
                 </div>
               </div>
@@ -268,6 +295,10 @@ const Plans = () => {
 
       <Modal px={false} active={isOpen} onClick={() => setIsOpen(false)}>
         <CreatePlan />
+      </Modal>
+
+      <Modal px={false} active={isFund} onClick={() => setIsFund(false)}>
+        <LinkCard />
       </Modal>
     </PageLayout>
   );

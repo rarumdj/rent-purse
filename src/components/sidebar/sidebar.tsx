@@ -157,9 +157,6 @@ const SideBar: FC<NavLinks> = ({ links }) => {
     });
   };
 
-  const nameInitials = 'N/A';
-
-  const imageurl = null;
   return (
     <header className="hide-scrollbar  flex h-full min-w-[255px] flex-col justify-between overflow-y-scroll border-b border-gray-200 bg-white md:border-r md:bg-main-surface">
       <div className="hidden h-full flex-col md:flex">

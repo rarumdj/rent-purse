@@ -1,19 +1,14 @@
 import { useAppDispatch, useAppSelector } from 'hooks/redux-hooks';
 import Cookies from 'js-cookie';
 import {
-  Redirect,
   Route,
   RouteProps,
-  Switch,
-  useHistory,
-  useLocation,
+  Switch
 } from 'react-router-dom';
 import AuthLayout from './AuthLayout';
 import DashboardLayout from './DashboardLayout';
-import OnboardingLayout from './OnboardingLayout';
 import { dashboardRoutes } from './Routes';
 import SessionTimeout from './SessionTimeout';
-import { useEffect } from 'react';
 
 const renderRoutes = () => {
   const dispatch = useAppDispatch();

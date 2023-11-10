@@ -5,6 +5,7 @@ import ResetPassword from 'pages/Authentication/Reset-password';
 import GetStarted from 'pages/Get-started';
 import PageNotFound from 'pages/PageNotFound';
 import Plans from 'pages/Plans';
+import AllPlans from 'pages/Plans/AllPlans';
 import PlanDetails from 'pages/Plans/PlanDetails';
 
 export const dashboardRoutes = [
@@ -80,7 +81,14 @@ export const dashboardRoutes = [
     exact: true,
     type: 'dashboard',
   },
-
+  {
+    name: 'plans',
+    isPrivate: true,
+    path: '/plan/all',
+    component: AllPlans,
+    exact: true,
+    type: 'dashboard',
+  },
   {
     path: '*',
     name: 'Page Not Found',

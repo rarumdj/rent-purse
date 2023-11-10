@@ -1,7 +1,6 @@
 import classNames from 'classnames';
 import PageLayout from 'components/page-layout/pageLayout';
 import Modal from 'components/ui/modal';
-import ModalHeader from 'components/ui/modal/ModalHeader';
 import { Calendar2, Home, RecordCircle } from 'iconsax-react';
 import { useMemo, useState } from 'react';
 import { useHistory } from 'react-router-dom';

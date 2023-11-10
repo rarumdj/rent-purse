@@ -1,15 +1,12 @@
 import Button from 'components/button/button';
-import { CustomAmount } from 'components/ui/input/CustomAmount';
 import CustomInputLabel from 'components/ui/input/CustomInputLabel';
 import CustomSelect from 'components/ui/input/CustomSelect';
-import { FormCheckbox } from 'components/ui/input/FormCheckbox';
 import { FormInput } from 'components/ui/input/FormInput';
 import PhoneInputs from 'components/ui/input/PhoneInputs';
 import ModalHeader from 'components/ui/modal/ModalHeader';
 import usePhoneNumber from 'hooks/usePhoneNumber';
-import React from 'react';
 import { useForm } from 'react-hook-form';
-import { BankList, currencyOptions } from 'utils/formOptions';
+import { BankList } from 'utils/formOptions';
 
 interface IForms {
   monthly_income: { amount: string; currency: string };
