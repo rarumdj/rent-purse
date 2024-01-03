@@ -9,6 +9,7 @@ import {
   ArrowRight2,
   Award,
   InfoCircle,
+  Link,
   Moneys,
   RefreshLeftSquare,
   TickCircle,
@@ -28,12 +29,14 @@ import Modal from 'components/ui/modal';
 import CreatePlan from './modals/CreatePlan';
 import LinkCard from './modals/LinkCard';
 import { useHistory } from 'react-router-dom';
+import PaymentLink from './modals/PaymentLink';
 
 const Plans = () => {
   const percentage = 66;
   const { push } = useHistory();
   const [isOpen, setIsOpen] = useState(false);
   const [isFund, setIsFund] = useState(false);
+  const [isPaymentLink, setIsPaymentLink] = useState(false);
 
   const handleCreatePlan = () => {
     setIsOpen(true);
@@ -47,6 +50,9 @@ const Plans = () => {
   };
   const handleFund = () => {
     setIsFund(true);
+  };
+  const handlePaymentLink = () => {
+    setIsPaymentLink(true);
   };
   return (
     <PageLayout px="px-0">
@@ -192,11 +198,41 @@ const Plans = () => {
                   </div>
                   <div>
                     <span className="text-sm text-gray-600">Contributors</span>
-                    <div className="flex w-fit items-center gap-2 rounded-md border border-gray-100 bg-white p-2 text-sm text-gray-900">
-                      <PlusUser />
-                      No contributors
-                      <Add className="h-5 w-5 text-success-600" />
+                    <div className="flex -space-x-2 overflow-hidden">
+                      <img
+                        className="inline-block h-9 w-9 rounded-full ring-2 ring-white"
+                        src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                        alt=""
+                      />
+                      <img
+                        className="inline-block h-9 w-9 rounded-full ring-2 ring-white"
+                        src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                        alt=""
+                      />
+                      <img
+                        className="inline-block h-9 w-9 rounded-full ring-2 ring-white"
+                        src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80"
+                        alt=""
+                      />
+                      <img
+                        className="inline-block h-9 w-9 rounded-full ring-2 ring-white"
+                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                        alt=""
+                      />
+                      <a
+                        className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-white bg-gray-700 text-xs font-medium text-white hover:bg-gray-600 dark:border-gray-800"
+                        href="#"
+                      >
+                        +99
+                      </a>
                     </div>
+                  </div>
+                  <div
+                    onClick={handlePaymentLink}
+                    className="mt-auto flex h-fit w-fit cursor-pointer items-center gap-2 rounded-md border border-gray-100 bg-white p-2 text-sm text-gray-900"
+                  >
+                    Create payment link
+                    <Link className="h-4 w-4 text-success-600" />
                   </div>
                 </div>
               </div>
@@ -248,11 +284,42 @@ const Plans = () => {
                   </div>
                   <div>
                     <span className="text-sm text-gray-600">Contributors</span>
-                    <div className="flex w-fit items-center gap-2 rounded-md border border-gray-100 bg-white p-2 text-sm text-gray-900">
-                      <PlusUser />
-                      10 members
-                      <Add className="h-5 w-5 text-success-600" />
+                    <div className="flex -space-x-2 overflow-hidden">
+                      <img
+                        className="inline-block h-9 w-9 rounded-full ring-2 ring-white"
+                        src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                        alt=""
+                      />
+                      <img
+                        className="inline-block h-9 w-9 rounded-full ring-2 ring-white"
+                        src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                        alt=""
+                      />
+                      <img
+                        className="inline-block h-9 w-9 rounded-full ring-2 ring-white"
+                        src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80"
+                        alt=""
+                      />
+                      <img
+                        className="inline-block h-9 w-9 rounded-full ring-2 ring-white"
+                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                        alt=""
+                      />
+                      <a
+                        className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-white bg-gray-700 text-xs font-medium text-white hover:bg-gray-600 dark:border-gray-800"
+                        href="#"
+                      >
+                        +99
+                      </a>
                     </div>
+                  </div>
+
+                  <div
+                    onClick={handlePaymentLink}
+                    className="mt-auto flex h-fit w-fit cursor-pointer items-center gap-2 rounded-md border border-gray-100 bg-white p-2 text-sm text-gray-900"
+                  >
+                    Create payment link
+                    <Link className="h-4 w-4 text-success-600" />
                   </div>
                 </div>
               </div>
@@ -299,6 +366,13 @@ const Plans = () => {
 
       <Modal px={false} active={isFund} onClick={() => setIsFund(false)}>
         <LinkCard />
+      </Modal>
+      <Modal
+        px={false}
+        active={isPaymentLink}
+        onClick={() => setIsPaymentLink(false)}
+      >
+        <PaymentLink />
       </Modal>
     </PageLayout>
   );

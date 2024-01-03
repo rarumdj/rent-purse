@@ -34,9 +34,12 @@ import WithdrawFunds from './modals/WithdrawFunds';
 import DeletePlan from './modals/DeletePlan';
 import UpdateAccount from './modals/UpdateAccount';
 import ShareLink from './modals/ShareLink';
+import CreatePlan from './modals/CreatePlan';
+import InviteMembers from './modals/InviteMembers';
 const PlanDetails = () => {
   const dispatch = useAppDispatch();
   const [isOpen, setIsOpen] = useState(false);
+  const [isOpenMember, setIsOpenMember] = useState(false);
   const [isShareLink, setIsShareLink] = useState(false);
   const [isEditPay, setIsEditPay] = useState(false);
   const [isDelete, setIsDelete] = useState(false);
@@ -99,7 +102,10 @@ const PlanDetails = () => {
               placeholder="john@xyz.com"
               className="w-full md:w-80"
             />
-            <Button className="flex h-11 min-w-full items-center justify-center gap-2 py-0 text-sm shadow-xs md:min-w-[200px]">
+            <Button
+              onClick={() => setIsOpenMember(true)}
+              className="flex h-11 min-w-full items-center justify-center gap-2 py-0 text-sm shadow-xs md:min-w-[200px]"
+            >
               <AddCircle className="h-4 w-4 text-white" /> Invite member
             </Button>
             <CustomPopover button={dropDown} list={linkList} />
@@ -321,6 +327,14 @@ const PlanDetails = () => {
         close
       >
         <DeletePlan />
+      </Modal>
+
+      <Modal
+        px={false}
+        active={isOpenMember}
+        onClick={() => setIsOpenMember(false)}
+      >
+        <InviteMembers />
       </Modal>
     </PageLayout>
   );

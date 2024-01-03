@@ -66,7 +66,7 @@ const Modal = ({
         <div
           ref={ref}
           className={classNames(
-            'hide-scrollbar relative mx-auto h-full w-full  max-w-full origin-bottom overflow-scroll py-4 pt-20 md:max-w-lg',
+            'hide-scrollbar relative mx-auto h-full w-full max-w-[30rem] origin-bottom overflow-scroll py-4 pt-20 min-w-[30rem]',
             { ['bg-white']: bg },
             { ['px-4 md:px-8']: px }
           )}
@@ -80,12 +80,12 @@ const Modal = ({
 
           <button
             onClick={() => onClick(!active)}
-            className="absolute  left-0 hidden h-6 w-6 -translate-y-[2.2rem] translate-x-5 rounded-full border outline-none  transition-all duration-500 ease-in-out hover:bg-red-500 hover:text-white md:flex xl:h-7 xl:w-7 xl:-translate-y-[2.8rem] xl:translate-x-8"
+            className="absolute left-0 hidden h-6 w-6 -translate-y-[2.2rem] translate-x-5 rounded-full border outline-none  transition-all duration-500 ease-in-out hover:bg-red-500 hover:text-white md:flex xl:h-7 xl:w-7 xl:-translate-y-[2.8rem] xl:translate-x-8"
           >
             <XMarkIcon className="m-auto h-4 w-4" />
           </button>
 
-          <div className="py-4">{children}</div>
+          <div className="py-4 w-full">{children}</div>
         </div>
       </div>
     </>

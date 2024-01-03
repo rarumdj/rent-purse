@@ -1,13 +1,14 @@
 import Button from 'components/button/button';
 import CustomInputLabel from 'components/ui/input/CustomInputLabel';
 import CustomSelect from 'components/ui/input/CustomSelect';
+import CustomToggle from 'components/ui/input/CustomToggle';
 import { FormCheckbox } from 'components/ui/input/FormCheckbox';
 import { FormInput } from 'components/ui/input/FormInput';
 import ModalHeader from 'components/ui/modal/ModalHeader';
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { BankList } from 'utils/formOptions';
-
+import { ReactComponent as WrapedInfoIcon } from 'assets/icons/wrapped-info-icon.svg';
 interface IForms {
   plan_name: string;
   target_amount: { amount: string; currency: string };
@@ -20,6 +21,8 @@ interface IForms {
   duration: boolean;
 }
 const CreatePlan = () => {
+  const [isChecked, setIsChecked] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -88,7 +91,7 @@ const CreatePlan = () => {
             errors={errors}
           />
 
-          <FormCheckbox<IForms>
+          {/* <FormCheckbox<IForms>
             id="duration"
             name="duration"
             label={
@@ -105,53 +108,72 @@ const CreatePlan = () => {
               required: true,
             }}
             errors={errors}
-          />
+          /> */}
         </div>
-        {watch('duration') && (
-          <div className="border-b px-4 py-6 md:px-8">
-            <h3 className="mb-6 text-lg font-semibold text-main-header md:text-2xl">
+
+        <div className="border-b px-4 py-6 md:px-8">
+          <div className="flex items-center justify-between">
+            <h3 className="text-lg font-semibold text-main-header md:text-2xl">
               Savings duration
             </h3>
-
-            <FormInput<IForms>
-              id="plan_name"
-              type="date"
-              name="plan_name"
-              className="my-4"
-              placeholder="Plan name"
-              label={
-                <CustomInputLabel
-                  title="Start Date"
-                  subtitle="Specify the start date for your plan payment."
-                />
-              }
-              register={register}
-              rules={{
-                required: true,
-              }}
-              errors={errors}
-            />
-
-            <FormInput<IForms>
-              id="plan_name"
-              type="date"
-              name="plan_name"
-              className="my-4"
-              placeholder="Rent amount"
-              label={
-                <CustomInputLabel
-                  title="End Date"
-                  subtitle="When do you aim to reach your plan savings goal"
-                />
-              }
-              register={register}
-              rules={{
-                required: true,
-              }}
-              errors={errors}
-            />
+            <CustomToggle isChecked={isChecked} setIsChecked={setIsChecked} />
           </div>
-        )}
+          <div className="mb-6 text-sm text-gray-700">
+            Include plan duration a start and end date.
+          </div>
+
+          <FormInput<IForms>
+            disabled={!isChecked}
+            id="plan_name"
+            type="date"
+            name="plan_name"
+            className="my-4"
+            placeholder="Plan name"
+            label={
+              <CustomInputLabel
+                disabled={!isChecked}
+                title="Start Date"
+                subtitle="Specify the start date for your plan payment."
+              />
+            }
+            register={register}
+            rules={{
+              required: true,
+            }}
+            errors={errors}
+          />
+
+          <FormInput<IForms>
+            disabled={!isChecked}
+            id="plan_name"
+            type="date"
+            name="plan_name"
+            className="my-4"
+            placeholder="Rent amount"
+            label={
+              <CustomInputLabel
+                disabled={!isChecked}
+                title="End Date"
+                subtitle="When do you aim to reach your plan savings goal"
+              />
+            }
+            register={register}
+            rules={{
+              required: true,
+            }}
+            errors={errors}
+          />
+
+          <div className="my-4 mt-6 flex items-center gap-3 rounded-lg border border-green-200 bg-success-50 p-3">
+            <div>
+              <WrapedInfoIcon />
+            </div>
+            <div className="text-sm">
+              This your saving plan will take approximately 10 months 3 weeks
+              and ten days to save with regular N100
+            </div>
+          </div>
+        </div>
         <div className="border-b px-4 py-6 md:px-8">
           <h3 className="mb-6 text-lg font-semibold text-main-header md:text-2xl">
             Savings Plan and Automation
@@ -255,9 +277,11 @@ const CreatePlan = () => {
         <div className="px-4 py-6 md:px-8">
           <div className="mb-6">
             <h3 className="text-lg font-semibold text-main-header md:text-2xl">
-              Pay to
+              Auto payout
             </h3>
-            <p className="text-sm text-gray-600">Add a caregiver’s detail</p>
+            <p className="text-sm text-gray-600">
+              Automatically pay savings at the end of the saving period
+            </p>
           </div>
           <div className="mb-3">
             <CustomSelect
@@ -304,8 +328,7 @@ const CreatePlan = () => {
             name="automation_status"
             label={
               <CustomInputLabel
-                subtitle=" Enable for automatic contributions to make savings easy and
-                effortless."
+                subtitle="Allow automatic payment as soon as savings is complete?"
               />
             }
             type="checkbox"

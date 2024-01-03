@@ -6,6 +6,7 @@ import GetStarted from 'pages/Get-started';
 import PageNotFound from 'pages/PageNotFound';
 import Plans from 'pages/Plans';
 import AllPlans from 'pages/Plans/AllPlans';
+import Contributors from 'pages/Plans/Contributors';
 import PlanDetails from 'pages/Plans/PlanDetails';
 
 export const dashboardRoutes = [
@@ -78,6 +79,14 @@ export const dashboardRoutes = [
     isPrivate: true,
     path: '/plan/details',
     component: PlanDetails,
+    exact: true,
+    type: 'dashboard',
+  },
+  {
+    name: 'plans',
+    isPrivate: true,
+    path: '/plan/details/contributors',
+    component: Contributors,
     exact: true,
     type: 'dashboard',
   },
