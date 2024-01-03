@@ -112,7 +112,7 @@ const Plans = () => {
             </Button>
           </div>
 
-          <div className="He relative my-8 flex w-full flex-wrap justify-between gap-3 rounded-lg bg-profile_star_bg bg-cover p-4 md:grid-cols-12">
+          <div className="relative my-8 flex w-full flex-wrap justify-between gap-3 rounded-lg bg-profile_star_bg bg-cover p-4 md:grid-cols-12">
             <SectionTag
               className=""
               image={

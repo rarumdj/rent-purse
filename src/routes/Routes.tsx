@@ -8,6 +8,7 @@ import Plans from 'pages/Plans';
 import AllPlans from 'pages/Plans/AllPlans';
 import Contributors from 'pages/Plans/Contributors';
 import PlanDetails from 'pages/Plans/PlanDetails';
+import Settings from 'pages/Settings';
 
 export const dashboardRoutes = [
   {
@@ -95,6 +96,14 @@ export const dashboardRoutes = [
     isPrivate: true,
     path: '/plan/all',
     component: AllPlans,
+    exact: true,
+    type: 'dashboard',
+  },
+  {
+    name: 'settings',
+    isPrivate: true,
+    path: '/settings',
+    component: Settings,
     exact: true,
     type: 'dashboard',
   },
